@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1509459574 source:c:\users\bruno\desktop\criptografia\aes.c
+	"includes.h"
+
+1506981164 c:\users\bruno\desktop\criptografia\aes.h
+	<stdint.h>
+
+1507054632 source:c:\users\bruno\desktop\criptografia\test.c
+	"aes.h"
+	"includes.h"
+
+1507040521 c:\users\bruno\desktop\criptografia\includes.h
+	<stdio.h>
+	<string.h>
+	<stdint.h>
+	"aes.h"
+

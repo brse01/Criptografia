@@ -569,7 +569,7 @@ void AES_CBC_decrypt(const uint8_t* input, const uint8_t* key, uint8_t* output, 
 
 #endif // #if defined(CBC) && (CBC == 1)
 
-/**
+
 #if defined(CTR) && (CTR == 3)
 static void XOR_CTR(uint8_t* in, uint8_t* out, int size){
 uint8_t i;
@@ -577,23 +577,26 @@ for(i=0; i<size; ++i)
 out[i] ^= in[i];
 }
 
-static void INCREMENT_CTR(int cont, int size){
+static void INCREMENT_CTR( int size){
 uint8_t i;
-for(i= SIXTEEN-1;  i>= SIXTEEN - cont; i-- ){
-	if(++Iv[i] !=0 || i == SIXTEEN - cont) break;
+    for(i= SIXTEEN-1;  i>= SIXTEEN; i-- ){
+        if(++Iv[i] !=0 || i == SIXTEEN ) break;
+    }
 }
 
-void AES_CTR_encrypt(const uint8_t* input, const uint8_t* key, uint8_t* output, const uint32_t length, const uint8_t* iv){
+void AES_CTR_encrypt(uint8_t* input, uint8_t* key, uint8_t* output, const uint32_t length, uint8_t* iv){
     uint8_t j;
     Iv = (uint8_t*)iv;
+    int cont =0;
     for (j = 0; j< length; j += SIXTEEN)
     {
         AES_ECB_encrypt(Iv,key,output,length);
         XOR_CTR(input,output, length - j);
-        INCREMENT_CTR(cont,length);
+        INCREMENT_CTR(length);
         Iv = output;
         input  += SIXTEEN;
         output += SIXTEEN;
+
     }
 }
 
@@ -601,4 +604,4 @@ void AES_CTR_decrypt(const uint8_t* input, const uint8_t* key, uint8_t* output, 
    // AES_CTR_encrypt(output,key,input,length,iv);
 }
 #endif // #if defined(CTR) && (CTR == 1)
-**/
+

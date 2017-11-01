@@ -31,7 +31,7 @@ int main(void)
 
 
     test_encrypt_cbc_and_decrypt_cbc();
-    //test_encrypt_ctr_and_decrypt_ctr();
+    test_encrypt_ctr_and_decrypt_ctr();
 
 
     return 0;
@@ -142,7 +142,6 @@ static void test_encrypt_cbc_and_decrypt_cbc(void)
         printf("%02x", in[i]);
 }
 
-/**
 static void test_encrypt_ctr_and_decrypt_ctr(void)
 {
 
@@ -178,6 +177,6 @@ static void test_encrypt_ctr_and_decrypt_ctr(void)
         printf("%02x", in[i]);
 
 }
-**/
+
 
 

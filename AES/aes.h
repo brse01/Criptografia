@@ -41,7 +41,7 @@ void AES_CBC_decrypt(const uint8_t* input, const uint8_t* key, uint8_t* output, 
 #endif // #if defined(ECB) && (ECB == !)
 
 #if defined(CTR) && (CTR == 3)
-void AES_CTR_encrypt(const uint8_t* input, const uint8_t* key, uint8_t* output, const uint32_t length, const uint8_t* iv);
+void AES_CTR_encrypt( uint8_t* input, uint8_t* key, uint8_t* output, const uint32_t length,  uint8_t* iv);
 void AES_CTR_decrypt(const uint8_t* input, const uint8_t* key, uint8_t* output, const uint32_t length, const uint8_t* iv);
 #endif
 
